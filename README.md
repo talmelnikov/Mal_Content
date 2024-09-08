@@ -1,4 +1,4 @@
-#Malicious Content Detection Web App
+# Malicious Content Detection Web App
 
 This project is a Flask-based web application that detects and classifies toxic comments using a machine learning model. The application allows users to create, update, and delete rules that help classify text as "toxic" or "non-toxic" based on predefined rule types (keywords, phrases, contextual). It also supports managing reports (toxic content) and includes functionality for updating the reports after rules are modified.
 
