@@ -1,0 +1,31 @@
+{% extends "./base.html" %}
+{% block title %}
+Reports
+{% endblock %}
+{% block content %}
+<h1 align="center">Reports</h1>
+
+<ul class="list-group list-group-flush" id="reports">
+  {% for report in reports %}
+  <li class="list-group-item d-flex justify-content-between align-items-center
+             {% if report.report_type == 'toxic' %}border-left-red{% else %}border-left-green{% endif %}">
+    <div>
+      <strong>{{ report.data }}</strong> <br>
+      <small class="text-muted">{{ report.report_type|capitalize }} </small>
+    </div>
+    <div>
+      <button type="button" class="close" onClick="deleteReport('{{ report.id }}')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <a href="{{ url_for('views.update_report', report_id=report.id) }}" class="btn btn-secondary btn-sm">Edit</a>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<form method="GET" action="{{ url_for('views.create_report') }}">
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add New Report</button>
+  </div>
+</form>
+{% endblock %}

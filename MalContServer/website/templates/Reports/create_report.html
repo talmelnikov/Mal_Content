@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Submit Report
+{% endblock %}
+
+{% block content %}
+<h1 align="center">Submit a New Report</h1>
+
+<form method="POST" action="{{ url_for('views.create_report') }}">
+  <div class="form-group">
+    <textarea 
+      name="report" 
+      id="report" 
+      class="form-control" 
+      placeholder="Enter your report here..." 
+      required></textarea>
+  </div>
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Submit Report</button>
+  </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="reportModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reportModalLabel">Report Submission Result</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/create_report.js') }}"></script>
+{% endblock %}
