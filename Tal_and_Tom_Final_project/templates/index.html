@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxic Comment Prediction</title>
+</head>
+<body>
+    <h1>Enter a Comment to Predict</h1>
+    <form action="/predict" method="post">
+        <textarea name="comment" rows="10" cols="30"></textarea><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if comment %}
+    <h2>Comment:</h2>
+    <p>{{ comment }}</p>
+
+    <h2>Prediction Result:</h2>
+    <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
